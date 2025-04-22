@@ -1,0 +1,67 @@
+<section id="optimizer" class="container">
+    <div class="section-header">
+        <h2><i class="fas fa-dna"></i> TIR Optimizer</h2>
+        <p>Optimize gene sequences in E.coli for a specific target initiation rate</p>
+    </div>
+    <div class="card">
+        <div class="tab-control">
+            <button class="tab-btn active" data-tab="sequence-opt-tab">Sequence Input</button>
+            <button class="tab-btn" data-tab="locus-opt-tab">Locus Tag</button>
+        </div>
+        
+        <div id="sequence-opt-tab" class="tab-panel active">
+            <div class="form-group">
+                <label for="utrInput"><i class="fas fa-dna"></i> UTR Sequence</label>
+                <textarea id="utrInput" placeholder="Enter UTR Sequence" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="cdsInput"><i class="fas fa-code"></i> CDS Sequence</label>
+                <textarea id="cdsInput" placeholder="Enter CDS Sequence" rows="3"></textarea>
+            </div>
+        </div>
+        
+        <div id="locus-opt-tab" class="tab-panel">
+            <div class="form-group">
+                <label for="locusTagOptInput"><i class="fas fa-tag"></i> Locus Tag</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-search input-icon"></i>
+                    <input type="text" id="locusTagOptInput" class="has-icon" placeholder="Enter E.coli locus tag (e.g., b0001, thrL)">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="targetRate"><i class="fas fa-bullseye"></i> Target Initiation Rate</label>
+                <input type="number" id="targetRate" step="0.01" min="0" max="1" value="0.1" placeholder="Ex. 0.1">
+            </div>
+            
+            <div class="form-group">
+                <label for="iterations"><i class="fas fa-redo-alt"></i> Number of Iterations</label>
+                <input type="number" id="iterations" value="1000" min="100" max="10000" placeholder="1000">
+            </div>
+        </div>
+
+        <div class="controls centered">
+            <button id="currentTirBtn" class="button secondary-btn">
+                <i class="fas fa-calculator"></i> Calculate Current TIR
+            </button>
+            <button id="optimizeBtn" class="button primary-btn">
+                <i class="fas fa-magic"></i> Optimize Sequence
+            </button>
+        </div>
+
+        <div class="status-indicator">
+            <span>Status:</span>
+            <span id="optStatus" class="status-badge pending">Ready</span>
+        </div>
+
+        <div id="optimizationResult" class="result-panel">
+            <h3><i class="fas fa-lightbulb"></i> Optimization Results</h3>
+            <div class="results-content">
+                <p class="placeholder-text">Results will appear here after optimization</p>
+            </div>
+        </div>
+    </div>
+</section>

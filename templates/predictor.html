@@ -1,0 +1,60 @@
+<section id="predictor" class="container active">
+    <div class="section-header">
+        <h2><i class="fas fa-chart-line"></i> TIR Predictor</h2>
+        <p>Predict translation initiation rates in E.coli using mRNA sequence features</p>
+    </div>
+    <div class="card">
+        <div class="tab-control">
+            <button class="tab-btn active" data-tab="sequence-tab">Sequence Input</button>
+            <button class="tab-btn" data-tab="locus-tab">Locus Tag</button>
+        </div>
+        
+        <div id="sequence-tab" class="tab-panel active">
+            <div class="form-group">
+                <label for="utrInputPredictor"><i class="fas fa-dna"></i> UTR Sequence</label>
+                <textarea id="utrInputPredictor" placeholder="Enter UTR Sequence" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="cdsInputPredictor"><i class="fas fa-code"></i> CDS Sequence</label>
+                <textarea id="cdsInputPredictor" placeholder="Enter CDS Sequence" rows="3"></textarea>
+            </div>
+            
+            <div class="upload-section">
+                <label for="fileUpload" class="file-label">
+                    <i class="fas fa-file-upload"></i> Upload sequences file
+                    <input type="file" id="fileUpload" accept=".txt,.csv">
+                </label>
+                <span id="fileName">No file selected</span>
+            </div>
+        </div>
+        
+        <div id="locus-tab" class="tab-panel">
+            <div class="form-group">
+                <label for="locusTagInput"><i class="fas fa-tag"></i> Locus Tag</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-search input-icon"></i>
+                    <input type="text" id="locusTagInput" class="has-icon" placeholder="Enter E.coli locus tag (e.g., b0001, thrL)">
+                </div>
+            </div>
+        </div>
+
+        <div class="controls centered">
+            <button id="predictBtn" class="button primary-btn">
+                <i class="fas fa-calculator"></i> Predict Initiation Rate
+            </button>
+        </div>
+
+        <div class="status-indicator">
+            <span>Status:</span>
+            <span id="predStatus" class="status-badge pending">Ready</span>
+        </div>
+
+        <div id="predictionResult" class="result-panel">
+            <h3><i class="fas fa-chart-bar"></i> Prediction Results</h3>
+            <div class="results-content">
+                <p class="placeholder-text">Results will appear here after prediction</p>
+            </div>
+        </div>
+    </div>
+</section>
